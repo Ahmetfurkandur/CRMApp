@@ -1,0 +1,21 @@
+﻿using Domain.Entities.Common;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Domain.Entities
+{
+    public class Task : BaseEntity
+    {
+        public string Name { get; set; }
+        public TaskType Type { get; set; }
+        public TaskPriority Priority { get; set; }
+        public DateTime DueDate { get; set; }
+        public string Description { get; set; }
+        public ICollection<Contact> Contacts { get; set; }
+        public ICollection<Deal> Deals { get; set; }
+        public Common.TaskStatus Status{ get; set; }
+        public string Owner { get; set; }
+    }
+}
