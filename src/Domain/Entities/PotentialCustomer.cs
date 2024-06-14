@@ -14,7 +14,7 @@ namespace Domain.Entities
         public string Role { get; set; }
         public string Company { get; set; }
         public string Sector { get; set; }
-        public string InterestedPoduct { get; set; }
+        public string InterestedProduct { get; set; }
         public DealStatus DealStatus { get; set; }
         public Contact Contact { get; set; }
     }
