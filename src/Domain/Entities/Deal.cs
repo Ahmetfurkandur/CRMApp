@@ -17,6 +17,7 @@ namespace Domain.Entities
         public string Note { get; set; }
         public ICollection<string> Tags { get; set; }
         public string Owner { get; set; }
+        public Guid TaskId { get; set; }
         public ICollection<Contact> Contacts { get; set; }
 
     }

@@ -9,6 +9,7 @@ namespace Domain.Entities
 {
     public class Contact : BaseEntity
     {
+        public string ContactName { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string WebsiteUrl { get; set; }
@@ -16,5 +17,8 @@ namespace Domain.Entities
         public string City { get; set; }
         public string ZipCode { get; set; }
         public string Country { get; set; }
+
+        public Guid CustomerId { get; set; }
+        public Guid TaskId { get; set; }
     }
 }

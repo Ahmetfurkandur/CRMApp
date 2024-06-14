@@ -13,6 +13,6 @@ namespace Domain.Entities
         public string LastName { get; set; }
         public string Role { get; set; }
         public string Company { get; set; }
-        public Guid ContactId { get; set; }
+        Contact Contact { get; set; }
     }
 }

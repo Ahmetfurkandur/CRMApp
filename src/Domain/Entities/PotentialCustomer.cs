@@ -16,6 +16,6 @@ namespace Domain.Entities
         public string Sector { get; set; }
         public string InterestedPoduct { get; set; }
         public DealStatus DealStatus { get; set; }
-        public Guid ContactId { get; set; }
+        public Contact Contact { get; set; }
     }
 }
