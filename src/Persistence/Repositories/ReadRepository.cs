@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Persistence.Repositories
 {
-    internal class ReadRepository<T> : IReadRepository<T> where T : BaseEntity
+    public class ReadRepository<T> : IReadRepository<T> where T : BaseEntity
     {
         public CrmAppDbContext _context;
 
