@@ -52,8 +52,8 @@ namespace Persistence.Repositories
             return true;
         }
 
-        public async Task<int> SaveAsync()
-        => await _context.SaveChangesAsync();
+        public async Task<int> SaveAsync(CancellationToken cancellationToken = default)
+        => await _context.SaveChangesAsync(cancellationToken);
 
         public bool Update(T entity)
         {

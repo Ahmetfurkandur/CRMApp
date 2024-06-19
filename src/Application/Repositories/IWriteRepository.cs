@@ -14,6 +14,6 @@ namespace Application.Repositories
         Task<bool> RemoveAsync(Guid id);
         bool RemoveRange(List<T> entities);
         bool Update(T entity);
-        Task<int> SaveAsync();
+        Task<int> SaveAsync(CancellationToken cancellationToken = default);
     }
 }
