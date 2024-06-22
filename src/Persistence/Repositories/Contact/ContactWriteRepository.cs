@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Persistence.Repositories
 {
-    public class ContactWriteRepository : ReadRepository<Contact>, IContactReadRepository
+    public class ContactWriteRepository : WriteRepository<Contact>, IContactWriteRepository
     {
         public ContactWriteRepository(CrmAppDbContext context) : base(context)
         { }
