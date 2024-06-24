@@ -27,7 +27,7 @@ namespace Persistence
             services.AddScoped<IDealReadRepository, DealReadRepository>();
             services.AddScoped<IDealWriteRepository, DealWriteRepository>();
             services.AddScoped<ITaskReadRepository, TaskReadRepository>();
-            services.AddScoped<ITaskWriteRepository, ITaskWriteRepository>();
+            services.AddScoped<ITaskWriteRepository, TaskWriteRepository>();
             
             
         }

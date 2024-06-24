@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Contact.Queries.GetAllContactsQueries
 {
-    public record GetAllContactsQueryRequest(int Page, int Size) : IRequest<GetAllContactsQueryResponse>;
+    public record GetAllContactsQueryRequest(int Page = 0, int Size = 25) : IRequest<GetAllContactsQueryResponse>;
     
 }
