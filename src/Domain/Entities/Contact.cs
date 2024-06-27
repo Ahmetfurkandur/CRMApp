@@ -17,8 +17,9 @@ namespace Domain.Entities
         public string City { get; set; }
         public string ZipCode { get; set; }
         public string Country { get; set; }
-
         public Guid CustomerId { get; set; }
-        public Guid TaskId { get; set; }
+        public Customer Customer { get; set; }
+        public Guid PotentialCustomerId { get; set; }
+        public PotentialCustomer PotentialCustomer { get; set; }
     }
 }

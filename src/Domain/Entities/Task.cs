@@ -13,9 +13,11 @@ namespace Domain.Entities
         public TaskPriority Priority { get; set; }
         public DateTime DueDate { get; set; }
         public string Description { get; set; }
-        public ICollection<Contact> Contacts { get; set; }
-        public ICollection<Deal> Deals { get; set; }
         public Common.TaskStatus Status{ get; set; }
         public string Owner { get; set; }
+        public Guid? CustomerId { get; set; }
+        public Customer Customer { get; set; }
+        public Guid? PotentialCustomerId { get; set; }
+        public PotentialCustomer PotentialCustomer { get; set; }
     }
 }

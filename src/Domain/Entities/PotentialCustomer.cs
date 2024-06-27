@@ -13,9 +13,10 @@ namespace Domain.Entities
         public string LastName { get; set; }
         public string Role { get; set; }
         public string Company { get; set; }
-        public string Sector { get; set; }
         public string InterestedProduct { get; set; }
-        public DealStatus DealStatus { get; set; }
-        public Contact Contact { get; set; }
+        public LeadStatus LeadStatus { get; set; }
+        public ICollection<Contact> Contacts { get; set; }
+        public ICollection<Deal> Deals { get; set; }
+        public ICollection<Task> Tasks { get; set; }
     }
 }
