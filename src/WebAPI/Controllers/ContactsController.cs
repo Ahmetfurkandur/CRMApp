@@ -1,4 +1,5 @@
-﻿using Application.Features.Contact.Queries.GetAllContactsQueries;
+﻿using Application.Features.Contact.Commands.AddContactCommands;
+using Application.Features.Contact.Queries.GetAllContactsQueries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,14 @@ namespace WebAPI.Controllers
         {
             GetAllContactsQueryResponse response = await _meditor.Send(request);
             return Ok(response);
+        }
 
+        [HttpPost]
+        [Route("/add")]
+        public async Task<IActionResult> AddContact(AddContactCommandRequest request)
+        {
+            AddContactCommandResponse response = await _meditor.Send(request);
+            return Ok(response);
         }
     }
 }
