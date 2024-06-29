@@ -12,7 +12,7 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(CrmAppDbContext))]
-    [Migration("20240614162754_mig_1")]
+    [Migration("20240629141443_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -53,9 +53,6 @@ namespace Persistence.Migrations
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("DealId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -64,7 +61,7 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("TaskId")
+                    b.Property<Guid>("PotentialCustomerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("UpdatedDate")
@@ -80,9 +77,9 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DealId");
+                    b.HasIndex("CustomerId");
 
-                    b.HasIndex("TaskId");
+                    b.HasIndex("PotentialCustomerId");
 
                     b.ToTable("Contacts");
                 });
@@ -135,6 +132,9 @@ namespace Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid?>("CustomerId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("DealStatus")
                         .HasColumnType("int");
 
@@ -146,27 +146,25 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Note")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Owner")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("PotentialCustomerId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Tags")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("TaskId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TaskId");
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("PotentialCustomerId");
 
                     b.ToTable("Deals");
                 });
@@ -181,20 +179,14 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ContactId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("DealStatus")
-                        .HasColumnType("int");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("InterestedPoduct")
+                    b.Property<string>("InterestedProduct")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -202,11 +194,10 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("LeadStatus")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Sector")
+                    b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -214,8 +205,6 @@ namespace Persistence.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ContactId");
 
                     b.ToTable("PotentialCustomers");
                 });
@@ -228,6 +217,9 @@ namespace Persistence.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CustomerId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -244,6 +236,9 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("PotentialCustomerId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("Priority")
                         .HasColumnType("int");
 
@@ -258,52 +253,78 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("PotentialCustomerId");
+
                     b.ToTable("Tasks");
                 });
 
             modelBuilder.Entity("Domain.Entities.Contact", b =>
                 {
-                    b.HasOne("Domain.Entities.Deal", null)
+                    b.HasOne("Domain.Entities.Customer", "Customer")
                         .WithMany("Contacts")
-                        .HasForeignKey("DealId");
-
-                    b.HasOne("Domain.Entities.Task", null)
-                        .WithMany("Contacts")
-                        .HasForeignKey("TaskId")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Domain.Entities.PotentialCustomer", "PotentialCustomer")
+                        .WithMany("Contacts")
+                        .HasForeignKey("PotentialCustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("PotentialCustomer");
                 });
 
             modelBuilder.Entity("Domain.Entities.Deal", b =>
                 {
-                    b.HasOne("Domain.Entities.Task", null)
+                    b.HasOne("Domain.Entities.Customer", "Customer")
                         .WithMany("Deals")
-                        .HasForeignKey("TaskId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+                        .HasForeignKey("CustomerId");
 
-            modelBuilder.Entity("Domain.Entities.PotentialCustomer", b =>
-                {
-                    b.HasOne("Domain.Entities.Contact", "Contact")
-                        .WithMany()
-                        .HasForeignKey("ContactId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Domain.Entities.PotentialCustomer", "PotentialCustomer")
+                        .WithMany("Deals")
+                        .HasForeignKey("PotentialCustomerId");
 
-                    b.Navigation("Contact");
-                });
+                    b.Navigation("Customer");
 
-            modelBuilder.Entity("Domain.Entities.Deal", b =>
-                {
-                    b.Navigation("Contacts");
+                    b.Navigation("PotentialCustomer");
                 });
 
             modelBuilder.Entity("Domain.Entities.Task", b =>
                 {
+                    b.HasOne("Domain.Entities.Customer", "Customer")
+                        .WithMany("Tasks")
+                        .HasForeignKey("CustomerId");
+
+                    b.HasOne("Domain.Entities.PotentialCustomer", "PotentialCustomer")
+                        .WithMany("Tasks")
+                        .HasForeignKey("PotentialCustomerId");
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("PotentialCustomer");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Customer", b =>
+                {
                     b.Navigation("Contacts");
 
                     b.Navigation("Deals");
+
+                    b.Navigation("Tasks");
+                });
+
+            modelBuilder.Entity("Domain.Entities.PotentialCustomer", b =>
+                {
+                    b.Navigation("Contacts");
+
+                    b.Navigation("Deals");
+
+                    b.Navigation("Tasks");
                 });
 #pragma warning restore 612, 618
         }

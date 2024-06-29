@@ -78,7 +78,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("PotentialCustomerId");
 
-                    b.ToTable("Contacts");
+                    b.ToTable("Contacts", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Customer", b =>
@@ -111,7 +111,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customers", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Deal", b =>
@@ -163,7 +163,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("PotentialCustomerId");
 
-                    b.ToTable("Deals");
+                    b.ToTable("Deals", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.PotentialCustomer", b =>
@@ -203,7 +203,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PotentialCustomers");
+                    b.ToTable("PotentialCustomers", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Task", b =>
@@ -254,7 +254,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("PotentialCustomerId");
 
-                    b.ToTable("Tasks");
+                    b.ToTable("Tasks", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Contact", b =>
