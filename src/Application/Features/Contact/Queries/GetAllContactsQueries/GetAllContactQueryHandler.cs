@@ -11,7 +11,7 @@ namespace Application.Features.Contact.Queries.GetAllContactsQueries
 {
     public class GetAllContactQueryHandler : IRequestHandler<GetAllContactsQueryRequest, GetAllContactsQueryResponse>
     {
-        IContactReadRepository _contactReadRepository;
+        readonly IContactReadRepository _contactReadRepository;
 
         public GetAllContactQueryHandler(IContactReadRepository contactReadRepository)
         {
@@ -35,7 +35,7 @@ namespace Application.Features.Contact.Queries.GetAllContactsQueries
                     c.Country,
                     c.CreatedDate,
                     c.UpdatedDate
-                }).ToListAsync();
+                }).ToListAsync(cancellationToken);
 
             return new GetAllContactsQueryResponse(data, count);
         }
