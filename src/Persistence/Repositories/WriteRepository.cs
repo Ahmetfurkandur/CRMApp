@@ -13,7 +13,7 @@ namespace Persistence.Repositories
 {
     public class WriteRepository<T> : IWriteRepository<T> where T : BaseEntity
     {
-        public DbSet<T> Table => throw new NotImplementedException();
+        
 
         public CrmAppDbContext _context;
 
@@ -21,7 +21,7 @@ namespace Persistence.Repositories
         {
             _context = context;
         }
-
+        public DbSet<T> Table => _context.Set<T>();
         public async Task<bool> AddAsync(T entity)
         {
             EntityEntry<T> entityEntry = await Table.AddAsync(entity);
