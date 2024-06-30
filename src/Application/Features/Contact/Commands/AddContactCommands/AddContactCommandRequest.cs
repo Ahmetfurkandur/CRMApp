@@ -9,7 +9,7 @@ namespace Application.Features.Contact.Commands.AddContactCommands
 {
     public record AddContactCommandRequest : IRequest<AddContactCommandResponse>
     {
-        public string Name { get; init; }
+        public string ContactName { get; init; }
         public string Email { get; init; }
         public string PhoneNumber { get; init; }
         public string WebsiteUrl { get; init; }

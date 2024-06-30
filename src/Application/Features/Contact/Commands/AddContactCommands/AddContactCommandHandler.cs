@@ -25,7 +25,7 @@ namespace Application.Features.Contact.Commands.AddContactCommands
         {
             var contact = _mapper.Map<Domain.Entities.Contact>(request);
             await _repository.AddAsync(contact);
-
+            await _repository.SaveAsync(cancellationToken);
             return new();
         }
     }
