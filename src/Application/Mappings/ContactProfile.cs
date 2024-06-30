@@ -13,8 +13,7 @@ namespace Application.Mappings
     {
         public ContactProfile()
         {
-            CreateMap<Contact, AddContactCommandRequest>();
-            CreateMap<AddContactCommandRequest, Contact>();
+            CreateMap<Contact, AddContactCommandRequest>().ReverseMap();
         }
     }
 }
