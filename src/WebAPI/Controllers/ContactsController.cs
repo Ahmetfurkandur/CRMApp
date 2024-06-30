@@ -1,4 +1,5 @@
 ﻿using Application.Features.Contact.Commands.AddContactCommands;
+using Application.Features.Contact.Commands.UpdateContactCommands;
 using Application.Features.Contact.Queries.GetAllContactsQueries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -8,20 +9,13 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ContactsController : ControllerBase
+    public class ContactsController : BaseController
     {
-        IMediator _meditor;
-
-        public ContactsController(IMediator meditor)
-        {
-            _meditor = meditor;
-        }
-
         [HttpGet]
         [Route("/getall")]
         public async Task<IActionResult> GetAllContacts([FromQuery]GetAllContactsQueryRequest request)
         {
-            GetAllContactsQueryResponse response = await _meditor.Send(request);
+            GetAllContactsQueryResponse response = await Mediator.Send(request);
             return Ok(response);
         }
 
@@ -29,8 +23,16 @@ namespace WebAPI.Controllers
         [Route("/add")]
         public async Task<IActionResult> AddContact(AddContactCommandRequest request)
         {
-            AddContactCommandResponse response = await _meditor.Send(request);
-            return Ok(response);
+            await Mediator.Send(request);
+            return NoContent();
+        }
+
+        [HttpPut]
+        [Route("/update")]
+        public async Task<IActionResult> UpdateContact(UpdateContactCommandRequest request)
+        {
+            await Mediator.Send(request);
+            return NoContent();
         }
     }
 }
