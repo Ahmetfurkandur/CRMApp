@@ -1,4 +1,5 @@
 ﻿using Application.Features.Contact.Commands.AddContactCommands;
+using Application.Features.Contact.Commands.DeleteContactCommands;
 using Application.Features.Contact.Commands.UpdateContactCommands;
 using Application.Features.Contact.Queries.GetAllContactsQueries;
 using MediatR;
@@ -30,6 +31,14 @@ namespace WebAPI.Controllers
         [HttpPut]
         [Route("/update")]
         public async Task<IActionResult> UpdateContact(UpdateContactCommandRequest request)
+        {
+            await Mediator.Send(request);
+            return NoContent();
+        }
+
+        [HttpDelete]
+        [Route("/delete")]
+        public async Task<IActionResult> DeleteContact(DeleteContactCommandRequest request)
         {
             await Mediator.Send(request);
             return NoContent();
