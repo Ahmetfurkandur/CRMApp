@@ -38,7 +38,7 @@ namespace WebAPI.Controllers
 
         [HttpDelete]
         [Route("/delete")]
-        public async Task<IActionResult> DeleteContact(DeleteContactCommandRequest request)
+        public async Task<IActionResult> DeleteContact([FromQuery]DeleteContactCommandRequest request)
         {
             await Mediator.Send(request);
             return NoContent();
