@@ -2,6 +2,7 @@
 using Application.Features.Contact.Commands.DeleteContactCommands;
 using Application.Features.Contact.Commands.UpdateContactCommands;
 using Application.Features.Contact.Queries.GetAllContactsQueries;
+using Application.Features.Contact.Queries.GetContactsByNameQueries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +13,15 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ContactsController : BaseController
     {
+
+        [HttpGet]
+        [Route("/getbyname")]
+        public async Task<IActionResult> GetByName([FromQuery]GetContactsByNameQueryRequest request)
+        {
+            var response = await Mediator.Send(request);
+            return Ok(response.Data);
+        }
+
         [HttpGet]
         [Route("/getall")]
         public async Task<IActionResult> GetAllContacts([FromQuery]GetAllContactsQueryRequest request)
