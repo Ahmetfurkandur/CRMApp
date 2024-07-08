@@ -1,4 +1,5 @@
 ﻿using Application.Features.Customer.Commands.AddCustomerCommands;
+using Application.Features.Customer.Queries.GetAllCustomersQueries;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +15,13 @@ namespace WebAPI.Controllers
         {
             await Mediator.Send(request);
             return NoContent();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll([FromQuery]GetAllCustomersQueryRequest request)
+        {
+            var response = await Mediator.Send(request);
+            return Ok(response);
         }
     }
 }
