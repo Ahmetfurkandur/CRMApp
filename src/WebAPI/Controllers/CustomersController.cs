@@ -4,13 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class CustomersController : BaseController
     {
 
         [HttpPost]
-        [Route("/add")]
         public async Task<IActionResult> Add(AddCustomerCommandRequest request)
         {
             await Mediator.Send(request);

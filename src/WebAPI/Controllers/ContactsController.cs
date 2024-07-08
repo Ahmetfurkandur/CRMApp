@@ -9,13 +9,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ContactsController : BaseController
     {
 
         [HttpGet]
-        [Route("/getbyname")]
         public async Task<IActionResult> GetByName([FromQuery]GetContactsByNameQueryRequest request)
         {
             var response = await Mediator.Send(request);
@@ -23,32 +22,28 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("/getall")]
-        public async Task<IActionResult> GetAllContacts([FromQuery]GetAllContactsQueryRequest request)
+        public async Task<IActionResult> GetAll([FromQuery]GetAllContactsQueryRequest request)
         {
             GetAllContactsQueryResponse response = await Mediator.Send(request);
             return Ok(response);
         }
 
         [HttpPost]
-        [Route("/add")]
-        public async Task<IActionResult> AddContact(AddContactCommandRequest request)
+        public async Task<IActionResult> Add(AddContactCommandRequest request)
         {
             await Mediator.Send(request);
             return NoContent();
         }
 
         [HttpPut]
-        [Route("/update")]
-        public async Task<IActionResult> UpdateContact(UpdateContactCommandRequest request)
+        public async Task<IActionResult> Update(UpdateContactCommandRequest request)
         {
             await Mediator.Send(request);
             return NoContent();
         }
 
         [HttpDelete]
-        [Route("/delete")]
-        public async Task<IActionResult> DeleteContact([FromQuery]DeleteContactCommandRequest request)
+        public async Task<IActionResult> Delete([FromQuery]DeleteContactCommandRequest request)
         {
             await Mediator.Send(request);
             return NoContent();
