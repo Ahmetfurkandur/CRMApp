@@ -1,4 +1,5 @@
 ﻿using Application.Features.Customer.Commands.AddCustomerCommands;
+using Application.Features.Customer.Commands.UpdateCustomerCommands;
 using Application.Features.Customer.Queries.GetAllCustomersQueries;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +23,13 @@ namespace WebAPI.Controllers
         {
             var response = await Mediator.Send(request);
             return Ok(response);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(UpdateCustomerCommandRequest request)
+        {
+            await Mediator.Send(request);
+            return NoContent();
         }
     }
 }
