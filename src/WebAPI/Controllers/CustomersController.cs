@@ -1,4 +1,5 @@
 ﻿using Application.Features.Customer.Commands.AddCustomerCommands;
+using Application.Features.Customer.Commands.DeleteCustomerCommands;
 using Application.Features.Customer.Commands.UpdateCustomerCommands;
 using Application.Features.Customer.Queries.GetAllCustomersQueries;
 using Microsoft.AspNetCore.Http;
@@ -19,7 +20,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery]GetAllCustomersQueryRequest request)
+        public async Task<IActionResult> GetAll([FromQuery] GetAllCustomersQueryRequest request)
         {
             var response = await Mediator.Send(request);
             return Ok(response);
@@ -27,6 +28,13 @@ namespace WebAPI.Controllers
 
         [HttpPut]
         public async Task<IActionResult> Update(UpdateCustomerCommandRequest request)
+        {
+            await Mediator.Send(request);
+            return NoContent();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(DeleteCustomerCommandRequest request)
         {
             await Mediator.Send(request);
             return NoContent();
