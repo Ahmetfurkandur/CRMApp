@@ -34,7 +34,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete(DeleteCustomerCommandRequest request)
+        public async Task<IActionResult> Delete([FromQuery]DeleteCustomerCommandRequest request)
         {
             await Mediator.Send(request);
             return NoContent();
