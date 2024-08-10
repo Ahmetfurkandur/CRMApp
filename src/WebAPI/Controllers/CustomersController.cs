@@ -2,6 +2,7 @@
 using Application.Features.Customer.Commands.DeleteCustomerCommands;
 using Application.Features.Customer.Commands.UpdateCustomerCommands;
 using Application.Features.Customer.Queries.GetAllCustomersQueries;
+using Application.Features.Customer.Queries.GetCustomerDetailQueries;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +18,13 @@ namespace WebAPI.Controllers
         {
             await Mediator.Send(request);
             return NoContent();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetDetail([FromQuery]GetCustomerDetailQueryRequest request)
+        {
+            var customer = await Mediator.Send(request);
+            return Ok(customer);
         }
 
         [HttpGet]
