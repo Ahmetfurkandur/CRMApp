@@ -14,7 +14,7 @@ namespace Domain.Entities
         public DealStatus DealStatus { get; set; }
         public decimal Amount { get; set; }
         public DateTime CloseDate { get; set; }
-        public ICollection<string> Tags { get; set; }
+        public ICollection<string>? Tags { get; set; }
         public string Owner { get; set; }
         public Guid? CustomerId { get; set; }
         public Customer Customer { get; set; }

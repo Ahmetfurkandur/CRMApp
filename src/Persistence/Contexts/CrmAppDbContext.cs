@@ -15,6 +15,15 @@ namespace Persistence.Contexts
         public CrmAppDbContext(DbContextOptions options) : base(options)
         { }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Deal>()
+                .Property(d => d.Amount)
+                .HasColumnType("money");
+        }
+
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             var datas = ChangeTracker.Entries<BaseEntity>();
