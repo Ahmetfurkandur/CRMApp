@@ -1,12 +1,8 @@
-﻿using Application.Repositories;
+﻿using Application.Common.Dtos;
+using Application.Repositories;
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Customer.Queries.GetCustomerDetailQueries
 {
@@ -23,8 +19,30 @@ namespace Application.Features.Customer.Queries.GetCustomerDetailQueries
 
         public async Task<GetCustomerDetailQueryResponse> Handle(GetCustomerDetailQueryRequest request, CancellationToken cancellationToken)
         {
-            var customer = _repository.GetAll().Include(customers => customers.Contacts).SingleOrDefault(customer => customer.Id == request.Id);
-            var response = _mapper.Map<GetCustomerDetailQueryResponse>(customer);
+            var customerDetail = _repository.GetAll()
+                .Include(customer => customer.Contacts)
+                 .Where(customer => customer.Id == request.Id)
+                 .Select(customer => new CustomerDetailDto
+                 {
+                     Id = customer.Id,
+                     FirstName = customer.FirstName,
+                     LastName = customer.LastName,
+                     Role = customer.Role,
+                     Company = customer.Company,
+                     Contacts = customer.Contacts.Select(contact => new ContactDto
+                     {
+                         ContactName = contact.ContactName,
+                         Address = contact.Address,
+                         City = contact.City,
+                         Country = contact.Country,
+                         Email = contact.Email,
+                         PhoneNumber = contact.PhoneNumber,
+                         WebsiteUrl = contact.WebsiteUrl,
+                         ZipCode = contact.ZipCode                
+                     }).ToList()
+                 })
+                 .SingleOrDefault();
+            var response = _mapper.Map<GetCustomerDetailQueryResponse>(customerDetail);
             return response;
         }
     }

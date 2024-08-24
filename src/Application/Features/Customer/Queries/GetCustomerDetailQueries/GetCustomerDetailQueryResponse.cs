@@ -1,18 +1,15 @@
-﻿namespace Application.Features.Customer.Queries.GetCustomerDetailQueries
+﻿using Application.Common.Dtos;
+using Entity = Domain.Entities;
+
+namespace Application.Features.Customer.Queries.GetCustomerDetailQueries
 {
     public record GetCustomerDetailQueryResponse
     {
-        public string FirstName { get; init; }
-        public string LastName { get; init; }
-        public string Role { get; init; }
-        public string Company { get; init; }
-        public string ContactName { get; init; }
-        public string Email { get; init; }
-        public string PhoneNumber { get; init; }
-        public string WebsiteUrl { get; init; }
-        public string Address { get; init; }
-        public string City { get; init; }
-        public string ZipCode { get; init; }
-        public string Country { get; init; }
+        public Guid Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Role { get; set; }
+        public string Company { get; set; }
+        public List<ContactDto> Contacts { get; init; }
     }
 }

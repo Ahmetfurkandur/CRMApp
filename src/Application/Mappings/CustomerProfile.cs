@@ -1,4 +1,5 @@
-﻿using Application.Features.Customer.Commands.AddCustomerCommands;
+﻿using Application.Common.Dtos;
+using Application.Features.Customer.Commands.AddCustomerCommands;
 using Application.Features.Customer.Queries.GetCustomerDetailQueries;
 using AutoMapper;
 using Domain.Entities;
@@ -15,7 +16,7 @@ namespace Application.Mappings
         public CustomerProfile()
         {
             CreateMap<Customer,AddCustomerCommandRequest>().ReverseMap();
-            CreateMap<Customer, GetCustomerDetailQueryResponse>().ReverseMap();
+            CreateMap<CustomerDetailDto, GetCustomerDetailQueryResponse>().ReverseMap();
         }
     }
 }
