@@ -25,6 +25,7 @@ namespace Application.Features.PotentialCustomer.Queries.GetAllPotentialCustomer
             var data = await _repository.GetAll(false).Skip(request.Page * request.Size)
                 .Take(request.Size).Select(p => new
                 {
+                    p.Id,
                     p.FirstName,
                     p.LastName,
                     p.Role,
