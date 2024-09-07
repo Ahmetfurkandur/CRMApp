@@ -1,6 +1,6 @@
 ﻿using Application.Features.PotentialCustomer.Commands.AddPotentialCustomerCommands;
 using Application.Features.PotentialCustomer.Queries.GetAllPotentialCustomersQueries;
-using Microsoft.AspNetCore.Http;
+using Application.Features.PotentialCustomer.Queries.GetPotentialCustomerDetailQueries;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -9,6 +9,13 @@ namespace WebAPI.Controllers
     [ApiController]
     public class PotentialCustomersController : BaseController
     {
+
+        [HttpGet]
+        public async Task<IActionResult> GetDetail([FromQuery] GetPotentialCustomerDetailQueryRequest request)
+        {
+            var response = await Mediator.Send(request);
+            return Ok(response);
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery]GetAllPotentialCustomersQueryRequest request)
