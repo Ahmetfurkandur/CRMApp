@@ -1,4 +1,5 @@
 ﻿using Application.Features.PotentialCustomer.Commands.AddPotentialCustomerCommands;
+using Application.Features.PotentialCustomer.Commands.UpdatePotentialCustomerCommands;
 using Application.Features.PotentialCustomer.Queries.GetAllPotentialCustomersQueries;
 using Application.Features.PotentialCustomer.Queries.GetPotentialCustomerDetailQueries;
 using Microsoft.AspNetCore.Mvc;
@@ -31,6 +32,11 @@ namespace WebAPI.Controllers
             return NoContent();
         }
 
-
+        [HttpPut]
+        public async Task<IActionResult> Update(UpdatePotentialCustomerCommandRequest request)
+        {
+            await Mediator.Send(request);
+            return NoContent();
+        }
     }
 }
