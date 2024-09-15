@@ -1,0 +1,3 @@
+﻿namespace Application.Features.PotentialCustomer.Commands.DeletePotentialCustomerCommands;
+
+public record DeletePotentialCustomerCommandResponse();

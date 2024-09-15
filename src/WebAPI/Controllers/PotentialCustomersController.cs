@@ -1,4 +1,5 @@
 ﻿using Application.Features.PotentialCustomer.Commands.AddPotentialCustomerCommands;
+using Application.Features.PotentialCustomer.Commands.DeletePotentialCustomerCommands;
 using Application.Features.PotentialCustomer.Commands.UpdatePotentialCustomerCommands;
 using Application.Features.PotentialCustomer.Queries.GetAllPotentialCustomersQueries;
 using Application.Features.PotentialCustomer.Queries.GetPotentialCustomerDetailQueries;
@@ -36,6 +37,13 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Update(UpdatePotentialCustomerCommandRequest request)
         {
             await Mediator.Send(request);
+            return NoContent();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await Mediator.Send(new DeletePotentialCustomerCommandRequest(id));
             return NoContent();
         }
     }
