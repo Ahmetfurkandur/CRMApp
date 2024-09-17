@@ -1,5 +1,4 @@
 ﻿using Application.Common.Dtos;
-using Entity = Domain.Entities;
 
 namespace Application.Features.Customer.Queries.GetCustomerDetailQueries
 {

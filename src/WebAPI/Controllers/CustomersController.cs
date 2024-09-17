@@ -3,7 +3,6 @@ using Application.Features.Customer.Commands.DeleteCustomerCommands;
 using Application.Features.Customer.Commands.UpdateCustomerCommands;
 using Application.Features.Customer.Queries.GetAllCustomersQueries;
 using Application.Features.Customer.Queries.GetCustomerDetailQueries;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers

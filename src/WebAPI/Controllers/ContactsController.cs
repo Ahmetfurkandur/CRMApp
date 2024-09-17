@@ -3,8 +3,6 @@ using Application.Features.Contact.Commands.DeleteContactCommands;
 using Application.Features.Contact.Commands.UpdateContactCommands;
 using Application.Features.Contact.Queries.GetAllContactsQueries;
 using Application.Features.Contact.Queries.GetContactsByNameQueries;
-using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers

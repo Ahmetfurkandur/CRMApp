@@ -1,5 +1,4 @@
 ﻿using Application.Repositories;
-using MediatR;
 
 namespace Application.Features.PotentialCustomer.Commands.DeletePotentialCustomerCommands;
 

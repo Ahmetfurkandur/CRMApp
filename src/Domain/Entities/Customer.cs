@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Domain.Entities.Common;
+﻿using Domain.Entities.Common;
 
 namespace Domain.Entities
 {
