@@ -1,4 +1,4 @@
-﻿using Application.Repositories;
+﻿using Application.Common.Interfaces.Repositories.Customer;
 
 namespace Application.Features.Customer.Queries.GetAllCustomersQueries
 {

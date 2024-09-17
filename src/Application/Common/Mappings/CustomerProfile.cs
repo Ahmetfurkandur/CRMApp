@@ -4,13 +4,13 @@ using Application.Features.Customer.Queries.GetCustomerDetailQueries;
 using AutoMapper;
 using Domain.Entities;
 
-namespace Application.Mappings
+namespace Application.Common.Mappings
 {
     public class CustomerProfile : Profile
     {
         public CustomerProfile()
         {
-            CreateMap<Customer,AddCustomerCommandRequest>().ReverseMap();
+            CreateMap<Customer, AddCustomerCommandRequest>().ReverseMap();
             CreateMap<CustomerDetailDto, GetCustomerDetailQueryResponse>().ReverseMap();
         }
     }

@@ -3,9 +3,9 @@ using Application.Features.Contact.Queries.GetContactsByNameQueries;
 using AutoMapper;
 using Domain.Entities;
 
-namespace Application.Mappings
+namespace Application.Common.Mappings
 {
-    public class ContactProfile:Profile
+    public class ContactProfile : Profile
     {
         public ContactProfile()
         {

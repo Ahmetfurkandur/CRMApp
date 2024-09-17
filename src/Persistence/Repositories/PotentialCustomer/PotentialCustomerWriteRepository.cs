@@ -1,4 +1,4 @@
-﻿using Application.Repositories;
+﻿using Application.Common.Interfaces.Repositories.PotentialCustomer;
 using Domain.Entities;
 using Persistence.Contexts;
 

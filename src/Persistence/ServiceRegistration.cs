@@ -1,4 +1,8 @@
-﻿using Application.Repositories;
+﻿using Application.Common.Interfaces.Repositories.Contact;
+using Application.Common.Interfaces.Repositories.Customer;
+using Application.Common.Interfaces.Repositories.Deal;
+using Application.Common.Interfaces.Repositories.PotentialCustomer;
+using Application.Common.Interfaces.Repositories.Task;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Contexts;
 using Persistence.Repositories;

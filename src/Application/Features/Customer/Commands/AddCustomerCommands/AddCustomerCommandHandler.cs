@@ -1,4 +1,4 @@
-﻿using Application.Repositories;
+﻿using Application.Common.Interfaces.Repositories.Customer;
 using AutoMapper;
 
 namespace Application.Features.Customer.Commands.AddCustomerCommands

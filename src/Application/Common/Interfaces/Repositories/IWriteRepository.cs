@@ -1,6 +1,6 @@
-﻿namespace Application.Repositories
+﻿namespace Application.Common.Interfaces.Repositories
 {
-    public interface IWriteRepository<T>:IRepository<T> where T: class
+    public interface IWriteRepository<T> : IRepository<T> where T : class
     {
         Task<bool> AddAsync(T entity);
         Task<bool> AddRangeAsync(List<T> entities);

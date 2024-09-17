@@ -1,4 +1,4 @@
-﻿using Application.Repositories;
+﻿using Application.Common.Interfaces.Repositories.Contact;
 using AutoMapper;
 
 namespace Application.Features.Contact.Commands.AddContactCommands

@@ -4,7 +4,7 @@ using Application.Features.PotentialCustomer.Queries.GetPotentialCustomerDetailQ
 using AutoMapper;
 using Domain.Entities;
 
-namespace Application.Mappings
+namespace Application.Common.Mappings
 {
     public class PotentialCustomerProfile : Profile
     {

@@ -1,4 +1,4 @@
-﻿using Application.Repositories;
+﻿using Application.Common.Interfaces.Repositories.Contact;
 
 namespace Application.Features.Contact.Queries.GetAllContactsQueries
 {

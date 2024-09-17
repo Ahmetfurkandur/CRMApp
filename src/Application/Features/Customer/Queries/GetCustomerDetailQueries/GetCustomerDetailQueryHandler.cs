@@ -1,5 +1,5 @@
 ﻿using Application.Common.Dtos;
-using Application.Repositories;
+using Application.Common.Interfaces.Repositories.Customer;
 using AutoMapper;
 
 namespace Application.Features.Customer.Queries.GetCustomerDetailQueries

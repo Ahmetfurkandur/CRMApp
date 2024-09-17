@@ -1,4 +1,4 @@
-﻿using Application.Repositories;
+﻿using Application.Common.Interfaces.Repositories;
 using Domain.Entities.Common;
 using Persistence.Contexts;
 
