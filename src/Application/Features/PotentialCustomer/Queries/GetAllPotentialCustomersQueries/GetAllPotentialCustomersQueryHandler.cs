@@ -1,4 +1,6 @@
 ﻿using Application.Common.Interfaces.Repositories.PotentialCustomer;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.PotentialCustomer.Queries.GetAllPotentialCustomersQueries
 {

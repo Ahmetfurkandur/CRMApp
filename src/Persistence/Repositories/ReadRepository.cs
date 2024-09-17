@@ -2,6 +2,7 @@
 using Domain.Entities.Common;
 using Persistence.Contexts;
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Repositories
 {

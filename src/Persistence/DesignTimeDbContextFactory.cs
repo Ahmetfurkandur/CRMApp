@@ -1,4 +1,6 @@
-﻿using Persistence.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using Persistence.Contexts;
 
 namespace Persistence
 {

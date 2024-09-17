@@ -1,6 +1,8 @@
 ﻿using Application.Common.Dtos;
 using Application.Common.Interfaces.Repositories.Customer;
 using AutoMapper;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Customer.Queries.GetCustomerDetailQueries
 {

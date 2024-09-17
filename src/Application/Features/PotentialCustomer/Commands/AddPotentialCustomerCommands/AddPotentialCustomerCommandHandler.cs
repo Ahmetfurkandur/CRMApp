@@ -1,5 +1,6 @@
 ﻿using Application.Common.Interfaces.Repositories.PotentialCustomer;
 using AutoMapper;
+using MediatR;
 
 namespace Application.Features.PotentialCustomer.Commands.AddPotentialCustomerCommands
 {

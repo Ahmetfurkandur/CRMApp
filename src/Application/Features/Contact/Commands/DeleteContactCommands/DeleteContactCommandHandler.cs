@@ -1,4 +1,5 @@
 ﻿using Application.Common.Interfaces.Repositories.Contact;
+using MediatR;
 
 namespace Application.Features.Contact.Commands.DeleteContactCommands
 {

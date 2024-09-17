@@ -1,5 +1,7 @@
 ﻿using Application.Common.Interfaces.Repositories;
 using Domain.Entities.Common;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Persistence.Contexts;
 
 namespace Persistence.Repositories

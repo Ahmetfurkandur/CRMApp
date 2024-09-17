@@ -3,7 +3,7 @@ using Domain.Entities;
 
 namespace Application.Common.Interfaces.Repositories.Contact
 {
-    public interface IContactReadRepository : IReadRepository<Contact>
+    public interface IContactReadRepository : IReadRepository<Domain.Entities.Contact>
     {
     }
 }

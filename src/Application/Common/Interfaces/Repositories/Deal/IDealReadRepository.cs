@@ -3,7 +3,7 @@ using Domain.Entities;
 
 namespace Application.Common.Interfaces.Repositories.Deal
 {
-    public interface IDealReadRepository : IReadRepository<Deal>
+    public interface IDealReadRepository : IReadRepository<Domain.Entities.Deal>
     {
     }
 }

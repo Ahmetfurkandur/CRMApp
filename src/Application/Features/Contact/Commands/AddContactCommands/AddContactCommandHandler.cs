@@ -1,5 +1,6 @@
 ﻿using Application.Common.Interfaces.Repositories.Contact;
 using AutoMapper;
+using MediatR;
 
 namespace Application.Features.Contact.Commands.AddContactCommands
 {

@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Entities.Common;
+using Microsoft.EntityFrameworkCore;
 using Task = Domain.Entities.Task;
 
 namespace Persistence.Contexts

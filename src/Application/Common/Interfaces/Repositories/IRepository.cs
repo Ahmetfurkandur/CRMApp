@@ -1,4 +1,6 @@
-﻿namespace Application.Common.Interfaces.Repositories
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Application.Common.Interfaces.Repositories
 {
     public interface IRepository<T> where T : class
     {

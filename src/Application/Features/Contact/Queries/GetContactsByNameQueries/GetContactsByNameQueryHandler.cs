@@ -1,4 +1,6 @@
 ﻿using Application.Common.Interfaces.Repositories.Contact;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Contact.Queries.GetContactsByNameQueries
 {
