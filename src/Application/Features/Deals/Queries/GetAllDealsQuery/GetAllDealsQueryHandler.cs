@@ -3,7 +3,7 @@ using Application.Common.Interfaces.Repositories.Deal;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Features.Deals.Queries;
+namespace Application.Features.Deals.Queries.GetAllDealsQuery;
 
 public class GetAllDealsQueryHandler : IRequestHandler<GetAllDealsQueryRequest, GetAllDealsQueryResponse>
 {
