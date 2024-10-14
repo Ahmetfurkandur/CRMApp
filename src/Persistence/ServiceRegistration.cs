@@ -3,6 +3,7 @@ using Application.Common.Interfaces.Repositories.Customer;
 using Application.Common.Interfaces.Repositories.Deal;
 using Application.Common.Interfaces.Repositories.PotentialCustomer;
 using Application.Common.Interfaces.Repositories.Task;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Contexts;
 using Persistence.Repositories;
@@ -25,8 +26,8 @@ namespace Persistence
             services.AddScoped<IDealWriteRepository, DealWriteRepository>();
             services.AddScoped<ITaskReadRepository, TaskReadRepository>();
             services.AddScoped<ITaskWriteRepository, TaskWriteRepository>();
-            
-            
+
+
         }
     }
 }

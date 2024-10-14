@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
@@ -7,6 +8,6 @@ namespace WebAPI.Controllers
     public class BaseController : ControllerBase
     {
         private ISender _mediator;
-        protected ISender Mediator => _mediator ??=HttpContext.RequestServices.GetService<ISender>();
+        protected ISender Mediator => _mediator ??= HttpContext.RequestServices.GetService<ISender>();
     }
 }

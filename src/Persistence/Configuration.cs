@@ -1,4 +1,6 @@
-﻿namespace Persistence
+﻿using Microsoft.Extensions.Configuration;
+
+namespace Persistence
 {
     internal static class Configuration
     {

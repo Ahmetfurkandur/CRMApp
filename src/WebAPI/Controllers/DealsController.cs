@@ -1,5 +1,4 @@
-﻿using Application.Features.Deals.Queries;
-using Microsoft.AspNetCore.Http;
+﻿using Application.Features.Deals.Queries.GetAllDealsQuery;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
